@@ -25,6 +25,18 @@ def respond():
 	# Return the response in json format
 	return jsonify(response)
 
+@app.route("/form/", methods=["GET"])
+def get_form():
+	return """
+		<html>
+			<form action="/post/" method="POST">
+				<input type="text" value="me" name="name"/>
+				<input type="submit"/>
+			</form>
+		</html>
+	"""
+	
+
 @app.route('/post/', methods=['POST'])
 def post_something():
 	param = request.form.get('name')
