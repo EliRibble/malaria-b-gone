@@ -39,10 +39,10 @@ def get_form():
 
 @app.route('/post/', methods=['POST'])
 def post_something():
-	param = request.form.get('name')
-	print(param)
+	name = request.form.get('name')
+	print(f"Got POST for greeting to {name}")
 	# You can add the test cases you made in the previous function, but in our case here you are just testing the POST functionality
-	if param:
+	if name:
 		return jsonify({
 			"Message": f"Welcome {name} to our awesome platform!!",
 			# Add this option to distinct the POST request
